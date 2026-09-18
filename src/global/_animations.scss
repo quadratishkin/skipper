@@ -1,0 +1,28 @@
+@keyframes slideFromLeft {
+  from {
+    transform: translateX(-300vh);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    opacity: 1;
+    transform: translateX(300vh);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes showFromInvisibility {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

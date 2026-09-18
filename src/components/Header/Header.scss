@@ -1,0 +1,52 @@
+@use "../../global/variables" as *;
+
+.header {
+  padding: 10px 20px;
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  min-height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $header-bc;
+
+  &__image {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    width: 170px;
+    height: 40px;
+  }
+}
+
+.navMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  border-radius: 10px;
+
+  &__logo {
+    width: 170px;
+    height: 40px;
+  }
+
+  &__text {
+    color: $header-text;
+    font-size: 26px;
+    line-height: 14px;
+    font-weight: 700;
+    padding: 12px 8px;
+    border-radius: 10px;
+    transition: 0.6s;
+
+    &:hover {
+      background-color: $header-bc-hover;
+      color: $white;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+@use "../../global/variables" as *;
+
+.problem-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+  border-radius: 20px;
+
+  &__title {
+    margin: 0 0 10px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    gap: 5px;
+    padding: 0;
+    list-style: none;
+    counter-reset: item;
+  }
+
+  &__item {
+    position: relative;
+    padding: 20px 20px 20px 60px;
+    border-radius: 15px;
+    background-color: $problem-bc;
+    counter-increment: item;
+
+    &::before {
+      content: counter(item);
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #fff;
+      color: $color-text-muted;
+
+      font-weight: 700;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.6s ease-out;
+    }
+
+    &:hover::before {
+      transform: translateY(-50%) rotate(360deg);
+    }
+  }
+}

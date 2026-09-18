@@ -1,0 +1,62 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+  padding-top: 80px;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  height: auto;
+  object-fit: cover;
+  max-width: 100%;
+}
+
+a {
+  background-color: transparent;
+  color: #891311;
+  transition: transform ease-in 0.2s;
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    @media (min-width: 1200px) {
+      outline: none;
+      color: #b87d7d;
+      transform: translateY(-5px);
+    }
+  }
+}
+
+section {
+  padding: 0 0 60px;
+}
+
+//new
+.last-section {
+  padding: 0 0 70px;
+}
+
+textarea {
+  resize: none;
+}
+
+button {
+  cursor: pointer;
+}

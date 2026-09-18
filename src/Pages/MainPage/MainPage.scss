@@ -1,0 +1,82 @@
+@use "../../global/variables" as *;
+
+.meaning {
+  &__title {
+    font-size: 40px;
+    text-align: center;
+    margin: 0 0 40px;
+  }
+
+  &__description {
+    margin-top: 0;
+    font-size: 20px;
+  }
+}
+
+.problem {
+  &__wrapper {
+    background-color: $problems-wrapper;
+    padding: 20px 20px;
+    border-radius: 30px;
+    box-shadow: $box-shadow;
+  }
+
+  &__header {
+    margin: 0 0 20px;
+    text-align: center;
+  }
+
+  &__group {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    padding-bottom: 30px;
+  }
+}
+
+.forWhom {
+  &__title {
+    margin: 0 0 20px;
+    padding: 0;
+  }
+
+  &__description {
+    margin: 0 0 20px 0;
+    padding: 0;
+    font-size: 20px;
+  }
+
+  &__wrapper {
+    padding: 20px 20px;
+    border-radius: 30px;
+    background-color: rgb(252, 237, 237);
+    box-shadow: $box-shadow;
+  }
+
+  &__group {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 40px;
+  }
+}
+
+.howItWorks {
+  &__description {
+    text-align: center;
+    padding: 0;
+    margin: 0 0 40px;
+    font-size: 40px;
+    font-weight: 500;
+  }
+
+  &__group {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+}
