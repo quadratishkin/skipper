@@ -1,7 +1,27 @@
 import "./Account.scss";
 import AccountZero from "../../images/accountImageZero.webp";
+import { useRef, useState } from "react";
 
 export const Account = () => {
+  const [avatarPreview, setAvatarPreview] = useState<string>(AccountZero);
+  //   todo в дальнейшем выполнить отправку данного файта на сервер для замены
+  const [avatarFile, setAvatarFile] = useState<File | null>(null);
+
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    if (avatarPreview.startsWith("blob:")) {
+      URL.revokeObjectURL(avatarPreview);
+    }
+
+    setAvatarPreview(URL.createObjectURL(file));
+
+    setAvatarFile(file);
+  };
+
   return (
     <section className="account">
       <div className="container">
@@ -9,13 +29,32 @@ export const Account = () => {
           <h1 className="account__header">Аккаунт</h1>
           <form action="#" className="account-form" method="POST">
             <fieldset className="account-form__main-info">
-              <img
-                src={AccountZero}
-                width="320px"
-                height="320px"
-                alt="фотография вашего профиля"
-                className="account-form__img"
-              />
+              <div className="account-form__img-block">
+                <img
+                  src={avatarPreview}
+                  width="320px"
+                  height="320px"
+                  alt="фотография вашего профиля"
+                  className="account-form__img"
+                />
+                <div className="account-form__upload">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    ref={fileInputRef}
+                    onChange={handleFileChange}
+                    className="visually-hidden"
+                  />
+                  <button
+                    type="button"
+                    className="account-form__upload-btn"
+                    onClick={() => fileInputRef.current?.click()}
+                  >
+                    Загрузить фото
+                  </button>
+                </div>
+              </div>
+
               <div className="account-form__block">
                 <div className="account-form__input">
                   <input

@@ -13,10 +13,20 @@
   border-radius: 28px;
   border: 1px solid rgba(226, 228, 232, 1);
 
+  &__img-block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
   &__img {
     width: 320px;
     height: 320px;
     border: 1px solid black;
+  }
+
+  &__upload-btn {
+    width: 100%;
   }
 
   &__main-info {
