@@ -1,3 +1,5 @@
+import { Account } from "../AccountPage/Account";
+
 export const ProfilePage = () => {
-  return <div>ProfilePage</div>;
+  return <Account />;
 };

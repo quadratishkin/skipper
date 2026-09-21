@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router";
 import "./Header.scss";
-import { Pages } from "../../data/Pages";
 import Logo from "../../images/Logo.svg?react";
+import { NAV_ITEMS } from "../../data/Pages";
 
 export const Header = () => {
   const { pathname } = useLocation();
@@ -12,33 +12,16 @@ export const Header = () => {
         <nav className="navMenu">
           <Logo className="navMenu__logo" />
 
-          <Link
-            className={`navMenu__text${pathname === Pages.MAIN ? " navMenu__text--active" : ""}`}
-            to="/"
-          >
-            Главная
-          </Link>
+          {NAV_ITEMS.map(({ page, to, label }) => {
+            const isActive = pathname === page;
+            const className = `navMenu__text${isActive ? " navMenu__text--active" : ""}`;
 
-          <Link
-            className={`navMenu__text${pathname === Pages.USERS ? " navMenu__text--active" : ""}`}
-            to="/users"
-          >
-            Пользователи
-          </Link>
-
-          <Link
-            className={`navMenu__text${pathname === Pages.DEVELOPERS ? " navMenu__text--active" : ""}`}
-            to="/developers"
-          >
-            Разработчики
-          </Link>
-
-          <Link
-            className={`navMenu__text${pathname === Pages.PROFILE ? " navMenu__text--active" : ""}`}
-            to="/profile"
-          >
-            Профиль
-          </Link>
+            return (
+              <Link key={page} className={className} to={to}>
+                {label}
+              </Link>
+            );
+          })}
         </nav>
       </div>
     </header>

@@ -20,17 +20,17 @@
   /* Анимации — только когда родитель получил класс --visible */
   .howItWorks__group--visible & {
     &:nth-child(2) {
-      animation: slideFromLeft 3s ease-out forwards;
+      animation: $secondElemForSteps;
     }
 
     &:nth-child(4) {
       opacity: 0;
-      animation: showFromInvisibility 1s ease-out 3.2s forwards;
+      animation: $thirdElemForSteps;
     }
 
     &:nth-child(6) {
       opacity: 0;
-      animation: slideFromRight 2s ease-out 4s forwards;
+      animation: $fourthElemForSteps;
     }
   }
 

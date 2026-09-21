@@ -30,3 +30,12 @@ $step3: rgb(125, 235, 52);
 $step4: rgb(235, 231, 52);
 
 $arrowColor: rgb(51 0 255);
+
+//animations
+$secondElemForSteps: slideFromLeft 3s ease-out forwards;
+$thirdElemForSteps: showFromInvisibility 1s ease-out 3.2s forwards;
+$fourthElemForSteps: slideFromRight 3s ease-out 3.4s forwards;
+
+//account
+
+$labelColor: rgba(133, 131, 133, 1);

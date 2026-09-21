@@ -5,6 +5,7 @@ import { DevelopersPage } from "./Pages/DevelopersPage/DevelopersPage";
 import { ProfilePage } from "./Pages/ProfilePage/ProfilePage";
 import { UsersPage } from "./Pages/UsersPage/UsersPage";
 import { Footer } from "./components/Footer/Footer";
+import { MessengerPage } from "./Pages/MessengerPage/MessengerPage";
 
 export const App = () => {
   return (
@@ -14,6 +15,7 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/users" element={<UsersPage />} />
+          <Route path="/messenger" element={<MessengerPage />} />
           <Route path="/developers" element={<DevelopersPage />} />
           <Route path="/profile" element={<ProfilePage />} />
         </Routes>
