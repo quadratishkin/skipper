@@ -9,6 +9,8 @@ export enum Pages {
   USERS = "USERS",
   MESSENGER = "MESSENGER",
   DEVELOPERS = "DEVELOPERS",
+  REGISTRATION = "REGISTRATION",
+  AUTHORIZATION = "AUTHORIZATION",
   PROFILE = "PROFILE"
 }
 
@@ -18,4 +20,6 @@ export const NAV_ITEMS: NavItemI[] = [
   { page: Pages.MESSENGER, to: "/messenger", label: "Чаты" },
   { page: Pages.DEVELOPERS, to: "/developers", label: "Разработчики" },
   { page: Pages.PROFILE, to: "/profile", label: "Профиль" },
+  { page: Pages.REGISTRATION, to: "/registration", label: "Регистрация" },
+  { page: Pages.AUTHORIZATION, to: "/authorization", label: "Авторизация" },
 ];

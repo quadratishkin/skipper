@@ -11,17 +11,18 @@ export const Header = () => {
       <div className="container">
         <nav className="navMenu">
           <Logo className="navMenu__logo" />
+          <div className="navMenu__links">
+            {NAV_ITEMS.map(({ page, to, label }) => {
+              const isActive = pathname === page;
+              const className = `navMenu__text${isActive ? " navMenu__text--active" : ""}`;
 
-          {NAV_ITEMS.map(({ page, to, label }) => {
-            const isActive = pathname === page;
-            const className = `navMenu__text${isActive ? " navMenu__text--active" : ""}`;
-
-            return (
-              <Link key={page} className={className} to={to}>
-                {label}
-              </Link>
-            );
-          })}
+              return (
+                <Link key={page} className={className} to={to}>
+                  {label}
+                </Link>
+              );
+            })}
+          </div>
         </nav>
       </div>
     </header>

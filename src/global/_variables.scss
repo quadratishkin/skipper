@@ -4,38 +4,47 @@ $vp-tablet: 768px;
 $vp-desktop: 1024px;
 $vp-desktop-lg: 1304px;
 
-$box-shadow: 10px 7px 7px rgb(145, 148, 148);
+$box-shadow: 10px 7px 7px #919494;
 
-//colors
+// colors
 $white: #ffffff;
 $black: #000000;
-$color-text-muted: rgb(92, 90, 90);
+$color-text-muted: #5c5a5a;
 
-//header
+// header
 $header-text: #69a3ff;
-$header-bc: rgb(245, 245, 220);
-$header-bc-hover: rgb(77, 169, 170);
+$header-bc: #f5f5dc;
+$header-bc-hover: #4da9aa;
 
-//footer
-$footer-bc-color: rgb(223, 218, 218);
+// footer
+$footer-bc-color: #dfdada;
 
-//problem-section
-$problems-wrapper: rgb(52, 235, 238);
-$problem-bc: rgb(29, 216, 122);
+// problem-section
+$problems-wrapper: #34ebee;
+$problem-bc: #1dd87a;
 
-//step-section
-$step1: rgb(52, 235, 238);
-$step2: rgb(52, 235, 176);
-$step3: rgb(125, 235, 52);
-$step4: rgb(235, 231, 52);
+// step-section
+$step1: #34ebee;
+$step2: #34ebb0;
+$step3: #7deb34;
+$step4: #ebe734;
 
-$arrowColor: rgb(51 0 255);
+$arrowColor: #3300ff;
 
-//animations
+// animations
 $secondElemForSteps: slideFromLeft 3s ease-out forwards;
 $thirdElemForSteps: showFromInvisibility 1s ease-out 3.2s forwards;
 $fourthElemForSteps: slideFromRight 3s ease-out 3.4s forwards;
 
-//account
+// account / forms
+$labelColor: #858385;
 
-$labelColor: rgba(133, 131, 133, 1);
+$input-field-bc: #fcfcfc;
+$input-field-border-color: #f0f0f0;
+$input-text-color: #343033;
+$input-placeholder-color: #bfbfbf;
+
+$input-field-error-bc: #fff5f5;
+$input-field-error-border-color: #d92d20;
+
+$error-color: #d92d20;

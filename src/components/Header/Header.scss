@@ -24,15 +24,21 @@
 }
 
 .navMenu {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 90px 1fr;
   gap: 30px;
   border-radius: 10px;
 
   &__logo {
-    width: 170px;
-    height: 40px;
+    width: 90px;
+    height: 60px;
+  }
+
+  &__links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
   }
 
   &__text {
