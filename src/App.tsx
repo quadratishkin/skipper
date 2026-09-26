@@ -6,8 +6,9 @@ import { ProfilePage } from "./Pages/ProfilePage/ProfilePage";
 import { UsersPage } from "./Pages/UsersPage/UsersPage";
 import { Footer } from "./components/Footer/Footer";
 import { MessengerPage } from "./Pages/MessengerPage/MessengerPage";
-import { Registration } from "./Pages/RegistrationPage/RegisrationPage";
+import { RegistrationPage } from "./Pages/RegistrationPage/RegisrationPage";
 import { AuthorizationPage } from "./Pages/AuthorizationPage/AuthorizationPage";
+import { RequestListPage } from "./Pages/RequestListPage/RequestListPage";
 
 export const App = () => {
   return (
@@ -20,7 +21,8 @@ export const App = () => {
           <Route path="/messenger" element={<MessengerPage />} />
           <Route path="/developers" element={<DevelopersPage />} />
           <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/registration" element={<Registration />} />
+          <Route path="/request-list" element={<RequestListPage />} />
+          <Route path="/registration" element={<RegistrationPage />} />
           <Route path="/authorization" element={<AuthorizationPage />} />
         </Routes>
       </main>

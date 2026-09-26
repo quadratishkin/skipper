@@ -7,7 +7,7 @@ import {
 } from "./RegistrationSchema";
 import "./RegistrationPage.scss";
 
-export const Registration = () => {
+export const RegistrationPage = () => {
   const {
     register,
     handleSubmit,

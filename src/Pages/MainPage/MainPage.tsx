@@ -16,12 +16,14 @@ export const MainPage = () => {
     <>
       <section className="meaning">
         <div className="container">
-          <h1 className="meaning__title">Что такое платформа Skipper?</h1>
-          <p className="meaning__description">
-            Платформа-посредник между экспертом и менти. Мы помогаем найти
-            специалиста по нужной теме и получить легальный доход за
-            консультации.
-          </p>
+          <div className="meaning__wrapper">
+            <h1 className="meaning__title">Что такое платформа Skipper?</h1>
+            <p className="meaning__description">
+              Платформа-посредник между экспертом и менти. Мы помогаем найти
+              специалиста по нужной теме и получить легальный доход за
+              консультации.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -57,7 +59,7 @@ export const MainPage = () => {
 
       <section className="howItWorks last-section">
         <div className="container">
-          <div className="howItWork__wrapper">
+          <div className="howItWorks__wrapper">
             <h2
               className="howItWorks__title visually-hidden"
               aria-label="Как это работает"
