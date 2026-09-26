@@ -1,0 +1,36 @@
+@use "../../global/variables" as *;
+
+.request-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 28px;
+  background-color: #a8a9aa;
+  border: 1px solid $input-field-border-color;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: $header-text;
+    background-color: #c0c1c2;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+  }
+
+  &__industry {
+    font-size: 22px;
+    font-weight: 500;
+    color: $input-text-color;
+  }
+
+  &__arrow {
+    font-size: 24px;
+    color: $header-text;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover .request-item__arrow {
+    transform: translateX(5px);
+  }
+}

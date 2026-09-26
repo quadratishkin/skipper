@@ -44,13 +44,13 @@
     border-radius: 8px;
     padding: 12px 20px;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 16.1px;
     color: $input-text-color;
 
     &::placeholder {
       font-size: 18px;
-      font-weight: 500;
+      font-weight: 400;
       line-height: 16.1px;
       color: $input-placeholder-color;
     }
@@ -77,6 +77,7 @@
     margin-top: 4px;
     font-size: 14px;
     line-height: 1.2;
+    font-weight: 400;
     color: $error-color;
   }
 
@@ -97,12 +98,13 @@
     margin: 0;
     font-size: 16px;
     line-height: 1.4;
+    font-weight: 400;
     color: $color-text-muted;
     text-align: center;
   }
 
   &__link {
-    font-weight: 600;
+    font-weight: 500;
     text-decoration: none;
     transition: opacity 0.2s ease;
 

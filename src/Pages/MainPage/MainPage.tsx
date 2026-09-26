@@ -91,26 +91,6 @@ export const MainPage = () => {
           </div>
         </div>
       </section>
-
-      {/* <section className="cta">
-        <div className="container">
-          <h2 className="cta-title">
-            Готовы начать зарабатывать на экспертизе?
-          </h2>
-          <p className="cta-text">
-            Создайте профиль за пару минут — и начните получать заказы или
-            находить менторов.
-          </p>
-          <div className="cta-buttons">
-            <Link to="/register" className="cta-button-primary">
-              Стать ментором
-            </Link>
-            <Link to="/experts" className="cta-button-secondary">
-              Найти эксперта
-            </Link>
-          </div>
-        </div>
-      </section> */}
     </>
   );
 };

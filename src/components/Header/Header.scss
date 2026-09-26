@@ -1,7 +1,7 @@
 @use "../../global/variables" as *;
 
 .header {
-  padding: 10px 20px;
+  padding: 10px 0;
   position: sticky;
   z-index: 1;
   top: 0;
@@ -11,6 +11,7 @@
   justify-content: center;
   align-items: center;
   background-color: $header-bc;
+  box-sizing: border-box;
 
   &__image {
     position: absolute;
@@ -24,21 +25,24 @@
 }
 
 .navMenu {
-  display: grid;
-  grid-template-columns: 90px 1fr;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 30px;
   border-radius: 10px;
 
   &__logo {
     width: 90px;
     height: 60px;
+    flex-shrink: 0;
   }
 
   &__links {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 16px;
+    flex-wrap: wrap;
   }
 
   &__text {
