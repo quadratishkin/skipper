@@ -5,6 +5,7 @@ import {
   authorizationSchema,
   type AuthorizationForm,
 } from "./AuthorizationSchema";
+import TitleElem from "../../components/textElem/Title/TitleElem";
 import "./AuthorizationPage.scss";
 
 export const AuthorizationPage = () => {
@@ -29,7 +30,7 @@ export const AuthorizationPage = () => {
     <section className="authorization">
       <div className="container">
         <div className="authorization__wrapper">
-          <h1 className="authorization__title">Вход</h1>
+          <TitleElem align="center">Вход</TitleElem>
 
           <form
             className="authorization-form"

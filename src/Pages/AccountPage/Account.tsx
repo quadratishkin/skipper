@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import AccountZero from "../../images/accountImageZero.webp";
+import TitleElem from "../../components/textElem/Title/TitleElem";
 import { accountSchema, type AccountForm } from "./AccountSchema";
 import "./Account.scss";
 
@@ -70,7 +71,7 @@ export const Account = () => {
     <section className="account">
       <div className="container">
         <div className="account__wrapper">
-          <h1 className="account__title">Аккаунт</h1>
+          <TitleElem align="center">Аккаунт</TitleElem>
 
           <form
             className="account-form"

@@ -5,6 +5,7 @@ import {
   registrationSchema,
   type RegistrationForm,
 } from "./RegistrationSchema";
+import TitleElem from "../../components/textElem/Title/TitleElem";
 import "./RegistrationPage.scss";
 
 export const RegistrationPage = () => {
@@ -32,7 +33,7 @@ export const RegistrationPage = () => {
     <section className="registration">
       <div className="container">
         <div className="registration__wrapper">
-          <h1 className="registration__header">Регистрация</h1>
+          <TitleElem align="center">Регистрация</TitleElem>
 
           <form
             className="registration-form"

@@ -1,5 +1,6 @@
 import "./RequestListPage.scss";
 import { REQUESTS_DATA } from "../../data/RequestsData";
+import TitleElem from "../../components/textElem/Title/TitleElem";
 import { RequestItem } from "../../components/RequestItem/RequestItem";
 
 export const RequestListPage = () => {
@@ -12,7 +13,7 @@ export const RequestListPage = () => {
     <section className="request-list">
       <div className="container">
         <div className="request-list__wrapper">
-          <h1 className="request-list__title">Список заявок</h1>
+          <TitleElem align="center">Список заявок</TitleElem>
           <ul className="request-list__group">
             {REQUESTS_DATA.map((request) => (
               <RequestItem
