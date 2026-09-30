@@ -1,9 +1,9 @@
 import "./StepCard.scss";
-import type { StepCardI } from "./StepCardTypes";
+import type { IStepCard } from "./types";
 import DescriptionElem from "../textElem/Description/DescriptionElem";
 import TitleElem from "../textElem/Title/TitleElem";
 
-export const StepCard = ({ title, text }: StepCardI) => {
+export const StepCard = ({ title, text }: IStepCard) => {
   return (
     <li className="step-card">
       <TitleElem level={3} align="center" marginBottom="0" fontWeight={600}>

@@ -1,6 +1,6 @@
-import type { ProblemBlockDataI } from "../components/ProblemBlock/ProblemBlockTypes";
+import type { IProblemBlockData } from "../components/ProblemBlock/types";
 
-export const PROBLEMS: ProblemBlockDataI[] = [
+export const PROBLEMS: IProblemBlockData[] = [
   {
     group: "Менторы",
     reasons: [

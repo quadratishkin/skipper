@@ -1,4 +1,4 @@
-export interface ProblemBlockDataI {
+export interface IProblemBlockData {
   group: string;
   reasons: string[];
 }

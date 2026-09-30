@@ -1,6 +1,6 @@
 import React from "react";
 import "./TitleElem.scss";
-import type { TitleElemI } from "./TitleElemTypes";
+import type { ITitleElem } from "./types";
 
 const TAGS: Record<1 | 2 | 3, "h1" | "h2" | "h3"> = {
   1: "h1",
@@ -8,7 +8,7 @@ const TAGS: Record<1 | 2 | 3, "h1" | "h2" | "h3"> = {
   3: "h3",
 };
 
-const TitleElem: React.FC<TitleElemI> = ({
+const TitleElem: React.FC<ITitleElem> = ({
   children,
   level = 1,
   align,

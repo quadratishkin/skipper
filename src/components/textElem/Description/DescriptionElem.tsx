@@ -1,8 +1,8 @@
 import React from "react";
 import "./DescriptionElem.scss";
-import type { DescriptionElemI } from "./DescriptionElemTypes";
+import type { IDescriptionElem } from "./types";
 
-const DescriptionElem: React.FC<DescriptionElemI> = ({
+const DescriptionElem: React.FC<IDescriptionElem> = ({
   children,
   align,
   fontWeight,

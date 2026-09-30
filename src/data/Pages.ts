@@ -1,4 +1,4 @@
-export interface NavItemI {
+export interface INavItem {
   page: Pages;
   to: string;
   label: string;
@@ -12,10 +12,11 @@ export enum Pages {
   REGISTRATION = "REGISTRATION",
   AUTHORIZATION = "AUTHORIZATION",
   REQUEST_LIST = 'REQUEST_LIST',
+  REQUEST = 'REQUEST',
   PROFILE = "PROFILE"
 }
 
-export const NAV_ITEMS: NavItemI[] = [
+export const NAV_ITEMS: INavItem[] = [
   { page: Pages.MAIN, to: "/", label: "Главная" },
   { page: Pages.USERS, to: "/users", label: "Пользователи" },
   { page: Pages.MESSENGER, to: "/messenger", label: "Чаты" },

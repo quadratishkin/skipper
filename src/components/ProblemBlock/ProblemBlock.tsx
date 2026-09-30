@@ -1,8 +1,8 @@
 import TitleElem from "../textElem/Title/TitleElem";
 import "./ProblemBlock.scss";
-import type { ProblemBlockDataI } from "./ProblemBlockTypes";
+import type { IProblemBlockData } from "./types";
 
-export const ProblemBlock = ({ group, reasons }: ProblemBlockDataI) => {
+export const ProblemBlock = ({ group, reasons }: IProblemBlockData) => {
   return (
     <li className="problem-block">
       <TitleElem level={3} marginBottom="20px">{group}</TitleElem>

@@ -1,4 +1,4 @@
-export interface StepCardI {
+export interface IStepCard {
   title: string;
   text: string;
 };

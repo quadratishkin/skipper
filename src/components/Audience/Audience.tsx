@@ -1,9 +1,9 @@
 import "./Audience.scss";
-import type { AudienceI } from "./AudienceTypes";
+import type { IAudience } from "./types";
 import DescriptionElem from "../textElem/Description/DescriptionElem";
 import TitleElem from "../textElem/Title/TitleElem";
 
-export const Audience = ({ icon: Icon, title, text }: AudienceI) => {
+export const Audience = ({ icon: Icon, title, text }: IAudience) => {
   return (
     <li className="audience">
       <Icon className="audience__icon" />

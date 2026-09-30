@@ -4,9 +4,9 @@ import Programmer from "../images/programmer.svg?react";
 import Scientist from "../images/scientist.svg?react";
 import Lawyer from "../images/lawyer.svg?react";
 import Social from "../images/social.svg?react";
-import type { AudienceI } from "../components/Audience/AudienceTypes";
+import type { IAudience } from "../components/Audience/types";
 
-export const AUDIENCEDATA: AudienceI[] = [
+export const AUDIENCEDATA: IAudience[] = [
   {
     icon: Advisory,
     title: "Клиенты Т-Банка",

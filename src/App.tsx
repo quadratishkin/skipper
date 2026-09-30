@@ -9,6 +9,7 @@ import { MessengerPage } from "./Pages/MessengerPage/MessengerPage";
 import { RegistrationPage } from "./Pages/RegistrationPage/RegisrationPage";
 import { AuthorizationPage } from "./Pages/AuthorizationPage/AuthorizationPage";
 import { RequestListPage } from "./Pages/RequestListPage/RequestListPage";
+import { RequestPage } from "./Pages/RequestPage/RequestPage";
 
 export const App = () => {
   return (
@@ -22,6 +23,7 @@ export const App = () => {
           <Route path="/developers" element={<DevelopersPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/request-list" element={<RequestListPage />} />
+          <Route path="/requests/:requestId" element={<RequestPage />} />
           <Route path="/registration" element={<RegistrationPage />} />
           <Route path="/authorization" element={<AuthorizationPage />} />
         </Routes>
