@@ -14,11 +14,10 @@ export const getSkillModifier = (state: SkillState): string => {
   return "";
 };
 
-/** Собирает className для скилла */
-export const getSkillClassName = (state: SkillState): string =>
-  [SKILL_BASE_CLASS, getSkillModifier(state)]
-    .filter(Boolean)
-    .join(" ");
+/** Собирает модификатор класса по состоянию */
+export const getSkillClassName = (state: SkillState): string => {
+  return getSkillModifier(state);
+};
 
 /** Устанавливает состояние скилла */
 export const setSkillState = (

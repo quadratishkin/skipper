@@ -49,10 +49,10 @@ export const MainPage = () => {
       <section className="forWhom">
         <div className="container">
           <div className="forWhom__wrapper">
-            <TitleElem level={2} fontWeight={700} marginBottom="8px">
+            <TitleElem level={2} fontWeight={700} margin="0 0 8px">
               Кому будет полезно
             </TitleElem>
-            <DescriptionElem marginBottom="24px" fontSize="18px">
+            <DescriptionElem margin="0 0  24px" fontSize="18px">
               Платформа подойдёт и тем, кто хочет зарабатывать на экспертизе, и
               тем, кто ищет знания.
             </DescriptionElem>

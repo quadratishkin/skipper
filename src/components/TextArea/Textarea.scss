@@ -1,0 +1,14 @@
+.textArea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.textArea:focus {
+  border-color: #7d7d7d;
+}

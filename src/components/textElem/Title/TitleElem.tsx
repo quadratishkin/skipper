@@ -13,14 +13,14 @@ const TitleElem: React.FC<ITitleElem> = ({
   level = 1,
   align,
   fontWeight,
-  marginBottom,
+  margin,
 }) => {
   const Tag = TAGS[level];
-  
+
   const style: React.CSSProperties = {};
   if (align) style.textAlign = align;
   if (fontWeight) style.fontWeight = fontWeight;
-  if (marginBottom) style.marginBottom = marginBottom;
+  if (margin) style.margin = margin;
 
   return (
     <Tag className={`titleElem--${level}`} style={style}>
@@ -28,5 +28,4 @@ const TitleElem: React.FC<ITitleElem> = ({
     </Tag>
   );
 };
-
 export default TitleElem;
