@@ -7,13 +7,13 @@ const DescriptionElem: React.FC<IDescriptionElem> = ({
   align,
   fontWeight,
   fontSize,
-  marginBottom,
+  margin,
 }) => {
   const style: React.CSSProperties = {};
   if (align) style.textAlign = align;
   if (fontSize) style.fontSize = fontSize;
   if (fontWeight) style.fontWeight = fontWeight;
-  if (marginBottom) style.marginBottom = marginBottom;
+  if (margin) style.margin = margin;
 
   return (
     <p className="descriptionElem" style={style}>
