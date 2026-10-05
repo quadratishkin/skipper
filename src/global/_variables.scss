@@ -50,11 +50,27 @@ $input-field-bc: #fcfcfc;
 $input-field-border-color: #f0f0f0;
 $input-text-color: #343033;
 $input-placeholder-color: #bfbfbf;
-
 $input-field-error-bc: #fff5f5;
 $input-field-error-border-color: #d92d20;
-
 $error-color: #d92d20;
+
+// auth
+$auth-wrapper-bc: $white;
+$auth-icon-bc: #ecf0f3;
+$auth-icon-color: $black;
+$auth-description-color: $color-text-muted;
+$auth-toggle-bc: #f0f0f0;
+$auth-toggle-slider-bc: $white;
+$auth-toggle-text: $color-text-muted;
+$auth-toggle-text-active: $black;
+$auth-field-bc: $white;
+$auth-field-border: #f0f0f0;
+$auth-field-text: $black;
+$auth-field-placeholder: $color-text-muted;
+$auth-field-icon: $color-text-muted;
+$auth-error-color: #d92d20;
+$auth-btn-bc: $black;
+$auth-btn-text: $white;
 
 // skill-btns-colors
 $skill-default-bg: #ccbff1;

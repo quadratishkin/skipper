@@ -9,8 +9,7 @@ export enum Pages {
   USERS = "USERS",
   MESSENGER = "MESSENGER",
   DEVELOPERS = "DEVELOPERS",
-  REGISTRATION = "REGISTRATION",
-  AUTHORIZATION = "AUTHORIZATION",
+  AUTH = "AUTH",
   REQUEST_LIST = 'REQUEST_LIST',
   REQUEST = 'REQUEST',
   PROFILE = "PROFILE"
@@ -22,6 +21,5 @@ export const NAV_ITEMS: INavItem[] = [
   { page: Pages.DEVELOPERS, to: "/developers", label: "Разработчики" },
   { page: Pages.PROFILE, to: "/profile", label: "Профиль" },
   { page: Pages.REQUEST_LIST, to: "/request-list", label: "Заявки" },
-  { page: Pages.REGISTRATION, to: "/registration", label: "Регистрация" },
-  { page: Pages.AUTHORIZATION, to: "/authorization", label: "Авторизация" },
+  { page: Pages.AUTH, to: "/auth", label: "Авторизация" },
 ];
