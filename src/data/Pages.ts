@@ -17,7 +17,6 @@ export enum Pages {
 }
 
 export const NAV_ITEMS: INavItem[] = [
-  { page: Pages.MAIN, to: "/", label: "Главная" },
   { page: Pages.USERS, to: "/users", label: "Пользователи" },
   { page: Pages.MESSENGER, to: "/messenger", label: "Чаты" },
   { page: Pages.DEVELOPERS, to: "/developers", label: "Разработчики" },

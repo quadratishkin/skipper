@@ -23,7 +23,7 @@ const TitleElem: React.FC<ITitleElem> = ({
   if (margin) style.margin = margin;
 
   return (
-    <Tag className={`titleElem--${level}`} style={style}>
+    <Tag className={`titleElem titleElem--${level}`} style={style}>
       {children}
     </Tag>
   );

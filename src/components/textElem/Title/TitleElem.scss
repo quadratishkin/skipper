@@ -1,6 +1,7 @@
+@use "../../../global/variables" as *;
+
 .titleElem {
   font-weight: 500;
-  text-align: left;
 
   &--1 {
     font-size: 40px;
@@ -9,11 +10,13 @@
   }
 
   &--2 {
+    color: $black;
     line-height: 32px;
     font-size: 32px;
   }
 
   &--3 {
+    color: $black;
     line-height: 24px;
     font-size: 24px;
   }

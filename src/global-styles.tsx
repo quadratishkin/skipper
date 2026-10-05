@@ -10,3 +10,8 @@ import "./global/fonts.scss";
 // blocks
 
 import "./App.scss";
+
+// fonts
+import "@fontsource-variable/inter";
+import "@fontsource-variable/space-grotesk";
+import "@fontsource-variable/jetbrains-mono";

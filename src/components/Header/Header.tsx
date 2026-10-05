@@ -10,19 +10,28 @@ export const Header = () => {
     <header className="header">
       <div className="container">
         <nav className="navMenu">
-          <Logo className="navMenu__logo" />
-          <div className="navMenu__links">
+          <Link to="/" aria-label="На главную">
+            <Logo className="navMenu__logo" />
+          </Link>
+
+          <ul className="navMenu__links">
             {NAV_ITEMS.map(({ page, to, label }) => {
               const isActive = pathname === page;
               const className = `navMenu__text${isActive ? " navMenu__text--active" : ""}`;
 
               return (
-                <Link key={page} className={className} to={to}>
-                  {label}
-                </Link>
+                <li key={page} className="navMenu__item">
+                  <Link className={className} to={to}>
+                    {label}
+                  </Link>
+                </li>
               );
             })}
-          </div>
+          </ul>
+
+          <Link to="/profile" className="navMenu__button">
+            Личный кабинет
+          </Link>
         </nav>
       </div>
     </header>
