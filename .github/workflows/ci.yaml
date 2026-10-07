@@ -35,7 +35,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -f deployment/Dockerfile \
-            -t skipper-frontend:ci dist
+            -t skipper-frontend:ci .
 
       - name: Save Docker image
         run: docker save skipper-frontend:ci | gzip > skipper-frontend-image.tar.gz
