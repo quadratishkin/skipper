@@ -8,7 +8,7 @@ import "./Account.scss";
 
 export const Account = () => {
   const [avatarPreview, setAvatarPreview] = useState<string>(AccountZero);
-  const [avatarFile, setAvatarFile] = useState<File | null>(null);
+  const [, setAvatarFile] = useState<File | null>(null);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 

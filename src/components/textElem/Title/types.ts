@@ -6,8 +6,10 @@ export interface ITitleElem {
   children: ReactNode;
   level?: 1 | 2 | 3;
   align?: "left" | "center" | "right";
-  fontWeight?: 400 | 500 | 600 | 700;
+  fontWeight?: number;
   fontSize?: string | number;
   margin?: string;
   font?: TitleFont;
+  letterSpacing?: string;
+  className?: string;
 }

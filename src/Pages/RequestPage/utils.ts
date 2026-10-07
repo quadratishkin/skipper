@@ -1,5 +1,5 @@
 // RequestPage.utils.ts
-import { SKILL_BASE_CLASS, SKILL_MODIFIERS } from "./consts";
+import { SKILL_MODIFIERS } from "./consts";
 import type { ActiveSkillState, SkillState, SkillStatesMap } from "./types";
 
 /** Возвращает состояние, противоположное переданному */

@@ -26,6 +26,31 @@ $header-button-text: #ffffff;
 // footer
 $footer-bc-color: #dfdada;
 
+// hero
+$hero-accent: #1e4fd8;
+$hero-accent-hover: #163fb0;
+$hero-example-bg: #eef2ff;
+$hero-example-text: #1e4fd8;
+$hero-example-border: #c7d2fe;
+
+// describeTask
+$describe-task-bc: $black;
+$describe-task-title: $white;
+$describe-task-text: #b8bcc2;
+$describe-task-btn-bc: $white;
+$describe-task-btn-text: $black;
+
+$describe-task-title: $white;
+$describe-task-description: #c8cfcd;
+
+$describe-task-card-bc: $white;
+$describe-task-card-shadow: rgba(0, 0, 0, 0.25);
+$describe-task-card-label: $hero-accent;
+$describe-task-card-text: $color-text-muted;
+$describe-task-card-hint: $color-text-muted;
+$describe-task-tag-bc: #e0f2e9;
+$describe-task-tag-text: #1d7a6a;
+
 // problem-section
 $problems-wrapper: #34ebee;
 $problem-bc: #1dd87a;
