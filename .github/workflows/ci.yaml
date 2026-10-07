@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build frontend
+        run: npm run build
+
+      - name: Build Docker image
+        run: |
+          docker build -f deployment/Dockerfile \
+            -t skipper-frontend:ci dist
+
+      - name: Save Docker image
+        run: docker save skipper-frontend:ci | gzip > skipper-frontend-image.tar.gz
+
+      - name: Upload Docker image
+        uses: actions/upload-artifact@v7
+        with:
+          name: skipper-frontend-image
+          path: skipper-frontend-image.tar.gz
+          retention-days: 7
+          if-no-files-found: error
+
+  lint:
+    name: Lint
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint -- --max-warnings=0
