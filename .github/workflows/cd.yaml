@@ -1,0 +1,88 @@
+name: CD
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    name: Publish Docker image
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    permissions:
+      contents: read
+      actions: read
+      packages: write
+
+    env:
+      IMAGE_NAME: ghcr.io/${{ github.repository }}
+      IMAGE_TAG: sha-${{ github.event.workflow_run.head_sha }}
+
+    steps:
+      - name: Download Docker image
+        uses: actions/download-artifact@v8
+        with:
+          name: skipper-frontend-image
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: ${{ runner.temp }}/skipper-frontend-image
+
+      - name: Load Docker image
+        env:
+          IMAGE_ARCHIVE: ${{ runner.temp }}/skipper-frontend-image/skipper-frontend-image.tar.gz
+        run: |
+          gzip -dc "$IMAGE_ARCHIVE" | docker load
+
+      - name: Give image name
+        run: docker tag skipper-frontend:ci "$IMAGE_NAME:$IMAGE_TAG"
+
+      - name: Login to GHCR
+        env:
+          GHCR_USER: ${{ github.actor }}
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          printf '%s' "$GHCR_TOKEN" |
+            docker login ghcr.io -u "$GHCR_USER" --password-stdin
+
+      - name: Push Docker image
+        run: docker push "$IMAGE_NAME:$IMAGE_TAG"
+
+  deploy:
+    name: Deploy frontend
+    needs: publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    env:
+      FRONTEND_IMAGE: ghcr.io/${{ github.repository }}:sha-${{ github.event.workflow_run.head_sha }}
+
+    steps:
+      - name: Update frontend container
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          fingerprint: ${{ vars.SSH_HOST_FINGERPRINT }}
+          envs: FRONTEND_IMAGE
+          command_timeout: 5m
+          script: |
+            set -eu
+
+            cd /opt/skipper/
+
+            : "${FRONTEND_IMAGE:?FRONTEND_IMAGE UNDEFINED}"
+
+            sed -i "s|^FRONTEND_IMAGE=.*|FRONTEND_IMAGE=$FRONTEND_IMAGE|" .env
+            docker compose config --quiet
+            docker compose pull skipper_frontend
+            docker compose up -d skipper_frontend
