@@ -1,7 +1,13 @@
+import type { ReactNode } from "react";
+export type DescriptionFont = "inter" | "grotesk" | "mono";
+
 export interface IDescriptionElem {
-  children: React.ReactNode;
+  children: ReactNode;
   align?: "left" | "center" | "right";
-  fontWeight?: 400 | 500 | 600 | 700;
+  fontWeight?: number;
   fontSize?: string | number;
-  margin?: string;
+  lineHeight?: string | number;
+  font?: DescriptionFont;
+  letterSpacing?: string;
+  className?: string;
 }

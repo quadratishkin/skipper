@@ -1,0 +1,33 @@
+@use "../../global/variables" as *;
+
+.quick-start-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+
+  &__number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border: 1px solid $hero-accent;
+    border-radius: 50%;
+    color: $hero-accent;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Inter Variable", sans-serif;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  &__description {
+    margin: 0;
+  }
+}

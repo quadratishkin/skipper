@@ -15,8 +15,9 @@ const TitleElem: React.FC<ITitleElem> = ({
   align,
   fontWeight,
   fontSize,
-  margin,
   font = "grotesk",
+  letterSpacing,
+  className,
 }) => {
   const Tag = TAGS[level];
 
@@ -26,10 +27,13 @@ const TitleElem: React.FC<ITitleElem> = ({
   if (align) style.textAlign = align;
   if (fontWeight) style.fontWeight = fontWeight;
   if (fontSize) style.fontSize = fontSize;
-  if (margin) style.margin = margin;
+  if (letterSpacing) style.letterSpacing = letterSpacing;
 
   return (
-    <Tag className={`titleElem titleElem--${level}`} style={style}>
+    <Tag
+      className={`titleElem titleElem--${level}${className ? ` ${className}` : ""}`}
+      style={style}
+    >
       {children}
     </Tag>
   );
