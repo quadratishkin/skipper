@@ -64,7 +64,7 @@ export const AuthPage = () => {
             Личный кабинет
           </TitleElem>
 
-          <DescriptionElem margin="0 0 40px" align="center">
+          <DescriptionElem align="center" className="auth__description">
             Авторизуйтесь для управления анкетами, консультациями и
             персональными данными.
           </DescriptionElem>
