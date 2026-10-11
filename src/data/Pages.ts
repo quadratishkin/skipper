@@ -19,7 +19,6 @@ export const NAV_ITEMS: INavItem[] = [
   { page: Pages.USERS, to: "/users", label: "Пользователи" },
   { page: Pages.MESSENGER, to: "/messenger", label: "Чаты" },
   { page: Pages.DEVELOPERS, to: "/developers", label: "Разработчики" },
-  { page: Pages.PROFILE, to: "/profile", label: "Профиль" },
   { page: Pages.REQUEST_LIST, to: "/request-list", label: "Заявки" },
   { page: Pages.AUTH, to: "/auth", label: "Авторизация" },
 ];

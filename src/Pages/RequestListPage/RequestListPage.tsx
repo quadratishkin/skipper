@@ -1,8 +1,9 @@
 import "./RequestListPage.scss";
-import { REQUESTS_DATA } from "../../data/RequestsData";
-import TitleElem from "../../components/textElem/Title/TitleElem";
-import { RequestItem } from "../../components/RequestItem/RequestItem";
 import { Link } from "react-router";
+
+import { RequestItem } from "../../components/RequestItem/RequestItem";
+import TitleElem from "../../components/textElem/Title/TitleElem";
+import { REQUESTS_DATA } from "../../data/RequestsData";
 
 export const RequestListPage = () => {
   const handleRequestClick = (id: string) => {

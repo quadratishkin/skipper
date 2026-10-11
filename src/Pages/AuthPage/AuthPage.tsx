@@ -1,12 +1,6 @@
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-
-import { AUTH_TOGGLE_ITEMS, DEFAULT_MODE, EMPTY_FORM } from "./consts";
-import TitleElem from "../../components/textElem/Title/TitleElem";
-import DescriptionElem from "../../components/textElem/Description/DescriptionElem";
-import type { AuthFormData, AuthMode } from "./types";
-import { loginSchema, registerSchema } from "./AuthPageSchema";
 import {
   RiUser3Line,
   RiMailLine,
@@ -14,6 +8,12 @@ import {
   RiEyeLine,
   RiEyeOffLine,
 } from "react-icons/ri";
+
+import { loginSchema, registerSchema } from "./AuthPageSchema";
+import { AUTH_TOGGLE_ITEMS, DEFAULT_MODE, EMPTY_FORM } from "./consts";
+import type { AuthFormData, AuthMode } from "./types";
+import DescriptionElem from "../../components/textElem/Description/DescriptionElem";
+import TitleElem from "../../components/textElem/Title/TitleElem";
 import "./AuthPage.scss";
 
 export const AuthPage = () => {

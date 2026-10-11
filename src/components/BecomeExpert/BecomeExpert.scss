@@ -1,0 +1,110 @@
+@use "../../global/variables" as *;
+
+.become-expert {
+  padding: 0;
+  margin: 0 0 60px;
+  background-color: $become-expert-bc;
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    padding: 80px 60px;
+    border-radius: 0;
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 60px 24px;
+    }
+  }
+
+  /* ===== Левая часть ===== */
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 520px;
+  }
+
+  &__title {
+    margin: 0 0 24px;
+    font-family: "Space Grotesk Variable", sans-serif;
+    font-size: 44px;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: $white;
+
+    @media (max-width: 900px) {
+      font-size: 32px;
+    }
+  }
+
+  &__lead {
+    margin: 0 0 32px;
+    font-family: "Inter Variable", sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    color: $become-expert-lead;
+  }
+
+  &__btn {
+    padding: 14px 28px;
+    background-color: $white;
+    color: $become-expert-btn-text;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Inter Variable", sans-serif;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      transform 0.2s ease;
+
+    &:hover {
+      background-color: $white;
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+  }
+
+  /* ===== Правая карточка ===== */
+
+  &__card {
+    padding: 40px 32px;
+    background-color: transparent;
+    border: 1px solid $become-expert-card-border;
+    border-radius: 16px;
+  }
+
+  &__card-title {
+    margin: 0 0 32px;
+    font-family: "Space Grotesk Variable", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: $white;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0 0 32px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__note {
+    margin: 0;
+    padding-top: 24px;
+    border-top: 1px solid $become-expert-card-border;
+    font-family: "Inter Variable", sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    color: $become-expert-note;
+  }
+}

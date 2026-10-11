@@ -1,9 +1,10 @@
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import AccountZero from "../../images/accountImageZero.webp";
-import TitleElem from "../../components/textElem/Title/TitleElem";
+
 import { accountSchema, type AccountForm } from "./AccountSchema";
+import TitleElem from "../../components/textElem/Title/TitleElem";
+import AccountZero from "../../images/accountImageZero.webp";
 import "./Account.scss";
 
 export const Account = () => {

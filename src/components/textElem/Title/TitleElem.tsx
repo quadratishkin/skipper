@@ -1,7 +1,8 @@
 import React from "react";
+
 import "./TitleElem.scss";
-import type { ITitleElem } from "./types";
 import { FONT_FAMILY } from "./consts";
+import type { ITitleElem } from "./types";
 
 const TAGS: Record<1 | 2 | 3, "h1" | "h2" | "h3"> = {
   1: "h1",
@@ -29,11 +30,12 @@ const TitleElem: React.FC<ITitleElem> = ({
   if (fontSize) style.fontSize = fontSize;
   if (letterSpacing) style.letterSpacing = letterSpacing;
 
+  const classNames = ["titleElem", `titleElem--${level}`, className]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <Tag
-      className={`titleElem titleElem--${level}${className ? ` ${className}` : ""}`}
-      style={style}
-    >
+    <Tag className={classNames} style={style}>
       {children}
     </Tag>
   );

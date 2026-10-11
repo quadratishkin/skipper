@@ -8,7 +8,6 @@ export interface ITitleElem {
   align?: "left" | "center" | "right";
   fontWeight?: number;
   fontSize?: string | number;
-  margin?: string;
   font?: TitleFont;
   letterSpacing?: string;
   className?: string;

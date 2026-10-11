@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./Textarea.scss";
 import type { ITextArea } from "./types";
 

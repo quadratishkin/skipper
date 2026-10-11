@@ -1,7 +1,8 @@
 import React from "react";
+
 import "./DescriptionElem.scss";
-import type { IDescriptionElem } from "./types";
 import { FONT_FAMILY } from "./consts";
+import type { IDescriptionElem } from "./types";
 
 const DescriptionElem: React.FC<IDescriptionElem> = ({
   children,

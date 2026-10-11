@@ -21,7 +21,6 @@ body {
 
 main {
   flex-grow: 1;
-  padding-top: 24px;
   width: 100vw;
   background-color: $main-color;
 }
@@ -41,11 +40,6 @@ a {
 }
 
 section {
-  padding: 0 0 60px;
-}
-
-//new
-.last-section {
   padding: 0 0 60px;
 }
 

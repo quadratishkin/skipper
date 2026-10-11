@@ -1,10 +1,10 @@
+import type { IAudience } from "../components/Audience/types";
 import Advisory from "../images/advisory.svg?react";
 import Coach from "../images/coach.svg?react";
+import Lawyer from "../images/lawyer.svg?react";
 import Programmer from "../images/programmer.svg?react";
 import Scientist from "../images/scientist.svg?react";
-import Lawyer from "../images/lawyer.svg?react";
 import Social from "../images/social.svg?react";
-import type { IAudience } from "../components/Audience/types";
 
 export const AUDIENCEDATA: IAudience[] = [
   {

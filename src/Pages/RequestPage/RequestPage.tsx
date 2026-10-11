@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { useParams } from "react-router";
 import { CgMathMinus, CgMathPlus } from "react-icons/cg";
-import DescriptionElem from "../../components/textElem/Description/DescriptionElem";
-import TitleElem from "../../components/textElem/Title/TitleElem";
-import TextArea from "../../components/TextArea/Textare";
-import { REQUESTS_DATA } from "../../data/RequestsData";
+import { useParams } from "react-router";
+
 import { CLICK_DELAY } from "./consts";
+import type { ActiveSkillState, SkillStatesMap } from "./types";
 import {
   getOppositeState,
   getSkillClassName,
@@ -13,7 +11,10 @@ import {
   setSkillState,
   switchSkillState,
 } from "./utils";
-import type { ActiveSkillState, SkillStatesMap } from "./types";
+import TextArea from "../../components/TextArea/Textare";
+import DescriptionElem from "../../components/textElem/Description/DescriptionElem";
+import TitleElem from "../../components/textElem/Title/TitleElem";
+import { REQUESTS_DATA } from "../../data/RequestsData";
 import "./RequestPage.scss";
 
 export const RequestPage = () => {

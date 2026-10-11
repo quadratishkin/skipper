@@ -8,10 +8,12 @@ export const Audience = ({ icon: Icon, title, text }: IAudience) => {
     <li className="audience">
       <Icon className="audience__icon" />
       <div className="audience__block">
-        <TitleElem level={3} fontWeight={600}>
+        <TitleElem level={3} fontWeight={600} className="audience__title">
           {title}
         </TitleElem>
-        <DescriptionElem>{text}</DescriptionElem>
+        <DescriptionElem className="audience__description">
+          {text}
+        </DescriptionElem>
       </div>
     </li>
   );

@@ -1,48 +1,53 @@
-/* Breakpoints */
-/* ------------------------------------ */
+/* ============================================
+   BASE
+   ============================================ */
+
+// Breakpoints
 $vp-tablet: 768px;
 $vp-desktop: 1024px;
 $vp-desktop-lg: 1304px;
 
-$box-shadow: 10px 7px 7px #919494;
-
-// colors
+// Colors
 $white: #ffffff;
 $black: #000000;
 $color-text-muted: #5c5a5a;
-
 $main-color: #f9fafbf2;
-$background-login-wrapper: #ffffff;
 
-// header
+/* ============================================
+   LAYOUT
+   ============================================ */
+
+// Header
 $header-text: #0f1729e6;
 $header-bc: #f9fafbf2;
 $header-bc-hover: #e6ebef;
 $border-bottom-header: #e1e7ef;
-
 $header-button-bc: #1a2b4a;
-$header-button-text: #ffffff;
+$header-button-text: $white;
 
-// footer
+// Footer
 $footer-bc-color: #dfdada;
 
-// hero
+/* ============================================
+   MAIN PAGE
+   ============================================ */
+
+// Hero
 $hero-accent: #1e4fd8;
 $hero-accent-hover: #163fb0;
 $hero-example-bg: #eef2ff;
-$hero-example-text: #1e4fd8;
+$hero-example-text: $hero-accent;
 $hero-example-border: #c7d2fe;
 
-// describeTask
+// Describe Task
 $describe-task-bc: $black;
 $describe-task-title: $white;
 $describe-task-text: #b8bcc2;
+$describe-task-description: #c8cfcd;
 $describe-task-btn-bc: $white;
 $describe-task-btn-text: $black;
 
-$describe-task-title: $white;
-$describe-task-description: #c8cfcd;
-
+// Describe Task — Card
 $describe-task-card-bc: $white;
 $describe-task-card-shadow: rgba(0, 0, 0, 0.25);
 $describe-task-card-label: $hero-accent;
@@ -51,53 +56,97 @@ $describe-task-card-hint: $color-text-muted;
 $describe-task-tag-bc: #e0f2e9;
 $describe-task-tag-text: #1d7a6a;
 
-// problem-section
+// findExpertCard
+$find-expert-card-border: #e5e9f0;
+$find-expert-card-shadow: 0 4px 16px rgba(15, 23, 41, 0.06);
+$find-expert-card-shadow-hover: 0 8px 24px rgba(15, 23, 41, 0.08);
+$find-expert-card-shadow-accent: 0 8px 24px rgba(30, 79, 216, 0.2);
+$find-expert-card-shadow-accent-hover: 0 12px 32px rgba(30, 79, 216, 0.25);
+
+$find-expert-card-input-bc: #f7f9fc;
+$find-expert-card-input-placeholder: #9aa3b2;
+
+// findExpertCard — accent
+$find-expert-card-accent-label: #c7d2fe;
+$find-expert-card-accent-text: #e0e7ff;
+
+// Problem Section
 $problems-wrapper: #34ebee;
 $problem-bc: #1dd87a;
 
-// step-section
+// process
+$process-step-border: #c0cfe8;
+$process-step-number: $hero-accent;
+
+// becomeExpert
+$become-expert-bc: #34538f;
+$become-expert-lead: #c7d2fe;
+$become-expert-btn-text: #1a2b4a;
+$become-expert-card-border: #ffffff40;
+$become-expert-step-number: #93b4f5;
+$become-expert-step-text: #c7d2fe;
+$become-expert-note: #a3b8e8;
+
+// Steps Section
 $step1: #34ebee;
 $step2: #34ebb0;
 $step3: #7deb34;
 $step4: #ebe734;
-
 $arrowColor: #3300ff;
 
-// animations
+// Steps Animations
 $secondElemForSteps: slideFromLeft 3s ease-out forwards;
 $thirdElemForSteps: showFromInvisibility 1s ease-out 3.2s forwards;
 $fourthElemForSteps: slideFromRight 3s ease-out 3.4s forwards;
 
-// account / forms
-$labelColor: #858385;
+/* ============================================
+   FORMS
+   ============================================ */
 
+// Base inputs
+$labelColor: #858385;
 $input-field-bc: #fcfcfc;
 $input-field-border-color: #f0f0f0;
 $input-text-color: #343033;
 $input-placeholder-color: #bfbfbf;
+
+// Errors
 $input-field-error-bc: #fff5f5;
 $input-field-error-border-color: #d92d20;
 $error-color: #d92d20;
 
-// auth
+/* ============================================
+   AUTH
+   ============================================ */
+
+// Wrapper
 $auth-wrapper-bc: $white;
 $auth-icon-bc: #ecf0f3;
 $auth-icon-color: $black;
 $auth-description-color: $color-text-muted;
+
+// Toggle
 $auth-toggle-bc: #f0f0f0;
 $auth-toggle-slider-bc: $white;
 $auth-toggle-text: $color-text-muted;
 $auth-toggle-text-active: $black;
+
+// Fields
 $auth-field-bc: $white;
 $auth-field-border: #f0f0f0;
 $auth-field-text: $black;
 $auth-field-placeholder: $color-text-muted;
 $auth-field-icon: $color-text-muted;
-$auth-error-color: #d92d20;
+
+// Button
 $auth-btn-bc: $black;
 $auth-btn-text: $white;
+$auth-error-color: #d92d20;
 
-// skill-btns-colors
+/* ============================================
+   SKILL BUTTONS
+   ============================================ */
+
 $skill-default-bg: #ccbff1;
 $skill-default-border: #9a8fb8;
 $skill-confirmed-bg: #8dd59e;
