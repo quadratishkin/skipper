@@ -96,7 +96,7 @@ export const RequestPage = () => {
                 <div className="request-body__work-experience">
                   {request.work.map((job, index) => (
                     <div key={index} className="request-body__work-item">
-                      <TitleElem level={3} margin="0 0 8px">
+                      <TitleElem level={3} className="request-body__title">
                         {job.placeWork}
                       </TitleElem>
                       <div className="request-body__work-item__header">

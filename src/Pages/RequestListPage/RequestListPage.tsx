@@ -7,7 +7,7 @@ import { REQUESTS_DATA } from "../../data/RequestsData";
 
 export const RequestListPage = () => {
   const handleRequestClick = (id: string) => {
-    console.log(`Request ${id} clicked`);
+    return id;
     // Here we will add navigation to the detailed page in the future
   };
 

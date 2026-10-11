@@ -20,6 +20,10 @@
   flex-direction: column;
   gap: 15px;
 
+  &__title {
+    margin: 0 0 8px;
+  }
+
   &__skills-list {
     display: flex;
     gap: 15px;

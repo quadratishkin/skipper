@@ -1,14 +1,15 @@
 import { Route, Routes } from "react-router";
-import { Header } from "./components/Header/Header";
-import { MainPage } from "./Pages/MainPage/MainPage";
-import { DevelopersPage } from "./Pages/DevelopersPage/DevelopersPage";
-import { ProfilePage } from "./Pages/ProfilePage/ProfilePage";
-import { UsersPage } from "./Pages/UsersPage/UsersPage";
+
 import { Footer } from "./components/Footer/Footer";
-import { MessengerPage } from "./Pages/MessengerPage/MessengerPage";
+import { Header } from "./components/Header/Header";
 import { AuthPage } from "./Pages/AuthPage/AuthPage";
+import { DevelopersPage } from "./Pages/DevelopersPage/DevelopersPage";
+import { MainPage } from "./Pages/MainPage/MainPage";
+import { MessengerPage } from "./Pages/MessengerPage/MessengerPage";
+import { ProfilePage } from "./Pages/ProfilePage/ProfilePage";
 import { RequestListPage } from "./Pages/RequestListPage/RequestListPage";
 import { RequestPage } from "./Pages/RequestPage/RequestPage";
+import { UsersPage } from "./Pages/UsersPage/UsersPage";
 
 export const App = () => {
   return (
