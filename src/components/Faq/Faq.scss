@@ -1,0 +1,41 @@
+@use "../../global/variables" as *;
+@use "../../global/mixins" as *;
+
+.faq {
+  @include vp-768 {
+    padding: 60px 0;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    align-items: start;
+
+    @include vp-1024 {
+      grid-template-columns: 1fr 1.5fr;
+      gap: 40px;
+    }
+
+    @include vp-768 {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+
+  /* ===== Заголовок ===== */
+  &__title {
+    margin: 0;
+
+    /* На mobile — центрируем */
+    @include vp-768 {
+      text-align: center;
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}

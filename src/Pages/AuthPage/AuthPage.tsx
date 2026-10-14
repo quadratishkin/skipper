@@ -42,7 +42,7 @@ export const AuthPage = () => {
   };
 
   const onSubmit = (data: AuthFormData) => {
-    console.log(`Данные формы (${mode}):`, data);
+    return data;
   };
 
   return (

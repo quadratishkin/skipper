@@ -1,5 +1,5 @@
-import type { IBecomeExpertStep } from "./types";
 import "./BecomeExpertStep.scss";
+import type { IBecomeExpertStep } from "./types";
 
 export const BecomeExpertStep = ({
   number,
