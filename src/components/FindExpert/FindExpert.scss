@@ -1,0 +1,28 @@
+@use "../../global/variables" as *;
+@use "../../global/mixins" as *;
+
+.findExpert {
+  padding: 40px 0 60px;
+
+  &__title {
+    margin: 0 0 12px;
+
+    @include vp-768 {
+      font-size: 28px;
+    }
+  }
+
+  &__subtitle {
+    margin: 0 0 40px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+
+    @include vp-768 {
+      grid-template-columns: 1fr;
+    }
+  }
+}

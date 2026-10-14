@@ -4,13 +4,13 @@ import "./FindExpertCard.scss";
 import type { IFindExpertCard } from "./types";
 
 export const FindExpertCard = ({
-  label,
   title,
   text,
   formType,
   placeholder,
   buttonText,
   accent = false,
+  recommended = false,
   onSubmit,
 }: IFindExpertCard) => {
   const cardClassName = `find-expert-card${
@@ -19,7 +19,9 @@ export const FindExpertCard = ({
 
   return (
     <article className={cardClassName}>
-      <span className="find-expert-card__label">{label}</span>
+      {recommended && (
+        <span className="find-expert-card__badge">Рекомендуем</span>
+      )}
 
       <h2 className="find-expert-card__title">{title}</h2>
       <p className="find-expert-card__text">{text}</p>

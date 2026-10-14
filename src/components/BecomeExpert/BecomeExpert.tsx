@@ -1,5 +1,5 @@
+import { BecomeExpertStep } from "./BecomeExpertStep";
 import { BECOME_EXPERT_STEPS } from "../../data/BecomeExpertData";
-import { BecomeExpertStep } from "../BecomeExpertStep/BecomeExpertStep";
 import "./BecomeExpert.scss";
 
 export const BecomeExpert = () => {

@@ -1,19 +1,25 @@
 @use "./variables" as *;
 
+@mixin vp-560 {
+  @media (max-width: 560px) {
+    @content;
+  }
+}
+
 @mixin vp-768 {
-  @media (min-width: $vp-tablet) {
+  @media (max-width: $vp-tablet) {
     @content;
   }
 }
 
 @mixin vp-1024 {
-  @media (min-width: $vp-desktop) {
+  @media (max-width: $vp-desktop) {
     @content;
   }
 }
 
 @mixin vp-1304 {
-  @media (min-width: $vp-desktop-lg) {
+  @media (max-width: $vp-desktop-lg) {
     @content;
   }
 }

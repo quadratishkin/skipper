@@ -1,5 +1,61 @@
 @use "../../global/variables" as *;
+@use "../../global/mixins" as *;
 
 .footer {
-  background-color: $footer-bc-color;
+  padding: 24px 0;
+  background-color: $header-bc;
+  border-top: 1px solid $border-bottom-header;
+
+  @include vp-768 {
+    padding: 20px 0;
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+
+    @include vp-560 {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+  }
+
+  &__logo-link {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    text-decoration: none;
+  }
+
+  &__logo {
+    width: 120px;
+    height: 32px;
+    display: block;
+
+    @include vp-768 {
+      width: 90px;
+      height: 24px;
+    }
+  }
+
+  &__copyright,
+  &__description {
+    font-family: "Inter Variable", sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: $color-text-muted;
+
+    @include vp-768 {
+      font-size: 13px;
+    }
+  }
+
+  &__description {
+    margin-left: auto;
+    @include vp-560 {
+      margin: 0;
+    }
+  }
 }

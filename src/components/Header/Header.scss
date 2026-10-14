@@ -1,4 +1,6 @@
+// Импортируем миксины (укажите правильный путь к файлу с миксинами, если он отличается)
 @use "../../global/variables" as *;
+@use "../../global/mixins" as *; // Замените на реальный путь к файлу с миксинами
 
 .header {
   padding: 10px 0;
@@ -21,17 +23,65 @@
 
 .navMenu {
   display: grid;
-  grid-template-columns: 220px 1fr 138px;
+  // На десктопе делим на 2 колонки: логотип слева, меню справа
+  grid-template-columns: auto 1fr;
   align-items: center;
   justify-content: space-between;
   gap: 30px;
   width: 100%;
+
+  &__logo-link {
+    display: block;
+    justify-self: start;
+  }
 
   &__logo {
     width: 220px;
     height: 48px;
     flex-shrink: 0;
     display: block;
+
+    // Плавное уменьшение логотипа на мобильных через миксин
+    @include vp-768 {
+      width: 160px;
+      height: auto;
+    }
+  }
+
+  // Общий контейнер для ссылок и кнопки
+  &__mobile-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    // Трансформируем контейнер в выпадающую панель на мобильных
+    @include vp-768 {
+      position: absolute;
+      top: 100%; // Встанет ровно под нижней границей хедера
+      left: 0;
+      width: 100vw;
+      background-color: $header-bc;
+      border-bottom: 1px solid $border-bottom-header;
+      flex-direction: column;
+      gap: 20px;
+      padding: 24px 0;
+
+      // Анимация плавного появления
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
+
+      &--open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    }
   }
 
   &__links {
@@ -40,9 +90,15 @@
     justify-content: center;
     gap: 4px;
     list-style: none;
-    margin: 0;
+    margin: 0 auto; // Центрируем на ПК
     padding: 0;
     flex-wrap: wrap;
+
+    @include vp-768 {
+      flex-direction: column;
+      width: 100%;
+      gap: 10px;
+    }
   }
 
   &__item {
@@ -71,6 +127,13 @@
     &--active {
       font-weight: 700;
     }
+
+    @include vp-768 {
+      font-size: 16px; // Увеличиваем размер ссылок для удобного нажатия пальцем
+      width: 100%;
+      text-align: center;
+      padding: 12px;
+    }
   }
 
   &__button {
@@ -78,6 +141,8 @@
     align-items: center;
     justify-content: center;
     padding: 6px 10px;
+    width: 138px;
+    height: 32px;
     background-color: $header-button-bc;
     color: $header-button-text;
     font-size: 14px;
@@ -87,9 +152,63 @@
     text-decoration: none;
     white-space: nowrap;
     transition: opacity 0.2s ease;
+    justify-self: end;
 
     &:hover {
       opacity: 0.9;
     }
+
+    @include vp-768 {
+      width: 68px;
+      padding: 6px 10px;
+    }
+  }
+
+  // Кнопка бургера (по умолчанию скрыта)
+  &__burger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    padding: 0;
+    justify-self: end;
+    z-index: 11;
+
+    @include vp-768 {
+      display: flex; // Включаем только на экранах меньше 768px
+    }
+
+    span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background-color: $header-text;
+      border-radius: 2px;
+      transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+    }
+
+    // Анимация иконки бургера в крестик
+    &--open {
+      span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+  }
+
+  // Изменяем сетку самого грида на мобильных устройствах
+  @include vp-768 {
+    grid-template-columns: 1fr auto; // Две колонки: Логотип и Бургер
   }
 }

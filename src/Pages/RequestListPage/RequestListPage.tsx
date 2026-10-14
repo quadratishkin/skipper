@@ -8,7 +8,6 @@ import { REQUESTS_DATA } from "../../data/RequestsData";
 export const RequestListPage = () => {
   const handleRequestClick = (id: string) => {
     return id;
-    // Here we will add navigation to the detailed page in the future
   };
 
   return (

@@ -61,7 +61,6 @@ export const Account = () => {
 
   const onSubmit = (data: AccountForm) => {
     return data;
-
     // todo: отправка на сервер
     // const formData = new FormData();
     // if (avatarFile) formData.append("avatar", avatarFile);

@@ -1,5 +1,6 @@
+import { ProcessStep } from "./ProcessStep";
 import { PROCESS_STEPS } from "../../data/ProcessData";
-import { ProcessStep } from "../ProcessStep/ProcessStep";
+
 import "./Process.scss";
 
 export const Process = () => {
