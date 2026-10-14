@@ -1,5 +1,11 @@
 @use "./variables" as *;
 
+@mixin vp-560 {
+  @media (max-width: 560px) {
+    @content;
+  }
+}
+
 @mixin vp-768 {
   @media (max-width: $vp-tablet) {
     @content;
