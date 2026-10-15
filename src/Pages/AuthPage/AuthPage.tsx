@@ -9,17 +9,31 @@ import {
   RiEyeOffLine,
 } from "react-icons/ri";
 
-import { loginSchema, registerSchema } from "./AuthPageSchema";
 import { AUTH_TOGGLE_ITEMS, DEFAULT_MODE, EMPTY_FORM } from "./consts";
-import type { AuthFormData, AuthMode } from "./types";
+import type { AuthMode } from "./types";
+import { ApiError } from "../../api/ApiError";
+import { login } from "../../api/auth";
+import {
+  loginSchema,
+  registerSchema,
+  type AuthFormData,
+  type LoginForm,
+} from "../../api/authSchema";
 import DescriptionElem from "../../components/textElem/Description/DescriptionElem";
 import TitleElem from "../../components/textElem/Title/TitleElem";
 import "./AuthPage.scss";
+
+const AUTH_ERROR_MESSAGES: Record<string, string> = {
+  unauthorized: "Такого пользователя не существует",
+  too_many_requests: "Слишком много попыток. Попробуйте позже",
+  internal_error: "Сервер не отвечает. Попробуйте позже",
+};
 
 export const AuthPage = () => {
   const [mode, setMode] = useState<AuthMode>(DEFAULT_MODE);
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordRepeat, setShowPasswordRepeat] = useState(false);
+  const [authError, setAuthError] = useState<string | null>(null);
 
   const isLogin = mode === "login";
 
@@ -38,11 +52,26 @@ export const AuthPage = () => {
     setMode(newMode);
     setShowPassword(false);
     setShowPasswordRepeat(false);
+    setAuthError(null);
     reset(EMPTY_FORM);
   };
 
-  const onSubmit = (data: AuthFormData) => {
-    return data;
+  const onSubmit = async (data: AuthFormData) => {
+    if (!isLogin) return;
+
+    const { email, password } = data as LoginForm;
+
+    setAuthError(null);
+
+    try {
+      await login({ email, password });
+    } catch (error) {
+      if (error instanceof ApiError) {
+        setAuthError(AUTH_ERROR_MESSAGES[error.code] ?? "Что-то пошло не так");
+      } else {
+        setAuthError("Что-то пошло не так");
+      }
+    }
   };
 
   return (
@@ -107,8 +136,8 @@ export const AuthPage = () => {
             <div className="auth-form__block">
               {/* Логин */}
               <div className="auth-form__input">
-                <label className="auth-form__label" htmlFor="authLogin">
-                  Логин или адрес почты
+                <label className="auth-form__label" htmlFor="authEmail">
+                  Телефон или адрес почты
                 </label>
                 <div className="auth-form__field-wrapper">
                   <RiMailLine className="auth-form__icon" size={24} />
@@ -116,14 +145,16 @@ export const AuthPage = () => {
                     type="text"
                     className="auth-form__field"
                     placeholder="name@example.ru"
-                    id="authLogin"
-                    aria-invalid={!!errors.login}
-                    {...register("login")}
+                    id="authEmail"
+                    aria-invalid={!!errors.email || !!authError}
+                    {...register("email", {
+                      onChange: () => setAuthError(null),
+                    })}
                   />
                 </div>
-                {errors.login && (
+                {(errors.email || authError) && (
                   <span className="auth-form__error">
-                    {errors.login.message}
+                    {errors.email?.message ?? authError}
                   </span>
                 )}
               </div>

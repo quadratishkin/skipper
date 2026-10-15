@@ -8,7 +8,7 @@ export const AUTH_TOGGLE_ITEMS: { mode: AuthMode; label: string }[] = [
 ];
 
 export const EMPTY_FORM = {
-  login: "",
+  email: "",
   password: "",
   name: "",
   passwordRepeat: "",
