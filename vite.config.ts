@@ -10,5 +10,12 @@ export default defineConfig({
       usePolling: true,
       interval: 100,
     },
+    proxy: {
+      "/api": {
+        target: "https://dev.tskipper.ru",
+        changeOrigin: true,
+        secure: false,
+      },
+    },
   },
 });
