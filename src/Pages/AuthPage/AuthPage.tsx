@@ -25,7 +25,7 @@ import TitleElem from "../../components/textElem/Title/TitleElem";
 import "./AuthPage.scss";
 
 const AUTH_ERROR_MESSAGES: Record<string, string> = {
-  unauthorized: "Такого пользователя не существует",
+  invalid_credentials: "Такого пользователя не существует",
   account_already_exists:
     "Пользователь с таким email или телефоном уже зарегистрирован",
   too_many_requests: "Слишком много попыток. Попробуйте позже",
