@@ -4,18 +4,12 @@ import { z } from "zod";
    ПРОВЕРКИ
    ============================================================ */
 
-/* Email или телефон */
-const isEmailOrPhone = (value: string) => {
-  const isEmail = /^[\w.%+-]+@[\w.-]+\.[a-z]{2,}$/i.test(value);
-  const isPhone = /^(\+7|8)\d{10}$/.test(value);
-  return isEmail || isPhone;
-};
+export const isEmail = (value: string) =>
+  /^[\w.%+-]+@[\w.-]+\.[a-z]{2,}$/i.test(value);
 
-/* Минимум 2 слова (имя + фамилия) */
-const isFullName = (value: string) => {
-  const words = value.trim().split(/\s+/).filter(Boolean);
-  return words.length >= 2;
-};
+export const isPhone = (value: string) => /^(\+7|8)\d{10}$/.test(value);
+
+export const isEmailOrPhone = (value: string) => isEmail(value) || isPhone(value);
 
 /* ============================================================
    ВХОД
@@ -43,14 +37,9 @@ export const registerSchema = z
       .min(1, "Введите email или телефон")
       .refine(isEmailOrPhone, "Некорректный email или телефон"),
 
-    name: z
-      .string()
-      .trim()
-      .min(1, "Введите имя и фамилию")
-      .refine(
-        isFullName,
-        "Укажите имя и фамилию через пробел (минимум 2 слова)",
-      ),
+    name: z.string().trim().min(1, "Введите имя"),
+
+    last_name: z.string().trim().min(1, "Введите фамилию"),
 
     password: z
       .string()
