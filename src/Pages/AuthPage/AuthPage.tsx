@@ -12,12 +12,13 @@ import {
 import { AUTH_TOGGLE_ITEMS, DEFAULT_MODE, EMPTY_FORM } from "./consts";
 import type { AuthMode } from "./types";
 import { ApiError } from "../../api/ApiError";
-import { login } from "../../api/auth";
+import { login, register as registerUser } from "../../api/auth";
 import {
   loginSchema,
   registerSchema,
   type AuthFormData,
   type LoginForm,
+  type RegisterForm,
 } from "../../api/authSchema";
 import DescriptionElem from "../../components/textElem/Description/DescriptionElem";
 import TitleElem from "../../components/textElem/Title/TitleElem";
@@ -25,6 +26,8 @@ import "./AuthPage.scss";
 
 const AUTH_ERROR_MESSAGES: Record<string, string> = {
   unauthorized: "Такого пользователя не существует",
+  account_already_exists:
+    "Пользователь с таким email или телефоном уже зарегистрирован",
   too_many_requests: "Слишком много попыток. Попробуйте позже",
   internal_error: "Сервер не отвечает. Попробуйте позже",
 };
@@ -57,14 +60,16 @@ export const AuthPage = () => {
   };
 
   const onSubmit = async (data: AuthFormData) => {
-    if (!isLogin) return;
-
-    const { email, password } = data as LoginForm;
-
     setAuthError(null);
 
     try {
-      await login({ email, password });
+      if (isLogin) {
+        const { email, password } = data as LoginForm;
+        await login({ email, password });
+      } else {
+        const { email, password, name, last_name } = data as RegisterForm;
+        await registerUser({ email, password, name, last_name });
+      }
     } catch (error) {
       if (error instanceof ApiError) {
         setAuthError(AUTH_ERROR_MESSAGES[error.code] ?? "Что-то пошло не так");
@@ -159,29 +164,54 @@ export const AuthPage = () => {
                 )}
               </div>
 
-              {/* Имя и фамилия — только для регистрации */}
               {!isLogin && (
-                <div className="auth-form__input">
-                  <label className="auth-form__label" htmlFor="authName">
-                    Имя и фамилия
-                  </label>
-                  <div className="auth-form__field-wrapper">
-                    <RiUser3Line className="auth-form__icon" size={24} />
-                    <input
-                      type="text"
-                      className="auth-form__field"
-                      placeholder="Иван Иванов"
-                      id="authName"
-                      aria-invalid={"name" in errors && !!errors.name}
-                      {...register("name")}
-                    />
+                <>
+                  <div className="auth-form__input">
+                    <label className="auth-form__label" htmlFor="authName">
+                      Имя
+                    </label>
+                    <div className="auth-form__field-wrapper">
+                      <RiUser3Line className="auth-form__icon" size={24} />
+                      <input
+                        type="text"
+                        className="auth-form__field"
+                        placeholder="Иван"
+                        id="authName"
+                        aria-invalid={"name" in errors && !!errors.name}
+                        {...register("name")}
+                      />
+                    </div>
+                    {"name" in errors && errors.name && (
+                      <span className="auth-form__error">
+                        {errors.name.message}
+                      </span>
+                    )}
                   </div>
-                  {"name" in errors && errors.name && (
-                    <span className="auth-form__error">
-                      {errors.name.message}
-                    </span>
-                  )}
-                </div>
+
+                  <div className="auth-form__input">
+                    <label className="auth-form__label" htmlFor="authLastName">
+                      Фамилия
+                    </label>
+                    <div className="auth-form__field-wrapper">
+                      <RiUser3Line className="auth-form__icon" size={24} />
+                      <input
+                        type="text"
+                        className="auth-form__field"
+                        placeholder="Иванов"
+                        id="authLastName"
+                        aria-invalid={
+                          "last_name" in errors && !!errors.last_name
+                        }
+                        {...register("last_name")}
+                      />
+                    </div>
+                    {"last_name" in errors && errors.last_name && (
+                      <span className="auth-form__error">
+                        {errors.last_name.message}
+                      </span>
+                    )}
+                  </div>
+                </>
               )}
 
               {/* Пароль */}
