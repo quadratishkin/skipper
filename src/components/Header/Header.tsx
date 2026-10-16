@@ -1,16 +1,29 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 
 import "./Header.scss";
+import { useAuth } from "../../context/AuthContext";
 import { NAV_ITEMS } from "../../data/Pages";
 import Logo from "../../images/Logo.svg?react";
 
 export const Header = () => {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const { isAuthenticated, logout } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
   const closeMenu = () => setIsOpen(false);
+
+  const handleAuthClick = async () => {
+    closeMenu();
+    if (isAuthenticated) {
+      await logout();
+      navigate("/");
+    } else {
+      navigate("/auth");
+    }
+  };
 
   return (
     <header className="header">
@@ -25,7 +38,6 @@ export const Header = () => {
             <Logo className="navMenu__logo" />
           </Link>
 
-          {/* Кнопка бургера */}
           <button
             type="button"
             className={`navMenu__burger${isOpen ? " navMenu__burger--open" : ""}`}
@@ -38,7 +50,6 @@ export const Header = () => {
             <span />
           </button>
 
-          {/* Общий контейнер для ссылок и кнопки входа на мобилках */}
           <div
             className={`navMenu__mobile-wrapper${
               isOpen ? " navMenu__mobile-wrapper--open" : ""
@@ -46,7 +57,7 @@ export const Header = () => {
           >
             <ul className="navMenu__links">
               {NAV_ITEMS.map(({ page, to, label }) => {
-                const isActive = pathname === page;
+                const isActive = pathname === to;
                 const className = `navMenu__text${
                   isActive ? " navMenu__text--active" : ""
                 }`;
@@ -61,9 +72,13 @@ export const Header = () => {
               })}
             </ul>
 
-            <Link to="/profile" className="navMenu__button" onClick={closeMenu}>
-              Вход
-            </Link>
+            <button
+              type="button"
+              className="navMenu__button"
+              onClick={handleAuthClick}
+            >
+              {isAuthenticated ? "Выход" : "Вход"}
+            </button>
           </div>
         </nav>
       </div>

@@ -8,11 +8,12 @@ import {
   RiEyeLine,
   RiEyeOffLine,
 } from "react-icons/ri";
+import { useNavigate } from "react-router";
 
 import { AUTH_TOGGLE_ITEMS, DEFAULT_MODE, EMPTY_FORM } from "./consts";
 import type { AuthMode } from "./types";
 import { ApiError } from "../../api/ApiError";
-import { login, register as registerUser } from "../../api/auth";
+import { getMe, login, register as registerUser } from "../../api/auth";
 import {
   loginSchema,
   registerSchema,
@@ -23,9 +24,10 @@ import {
 import DescriptionElem from "../../components/textElem/Description/DescriptionElem";
 import TitleElem from "../../components/textElem/Title/TitleElem";
 import "./AuthPage.scss";
+import { useAuth } from "../../context/AuthContext";
 
 const AUTH_ERROR_MESSAGES: Record<string, string> = {
-  invalid_credentials: "Такого пользователя не существует",
+  invalid_refresh_token: "Такого пользователя не существует",
   account_already_exists:
     "Пользователь с таким email или телефоном уже зарегистрирован",
   too_many_requests: "Слишком много попыток. Попробуйте позже",
@@ -37,6 +39,8 @@ export const AuthPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordRepeat, setShowPasswordRepeat] = useState(false);
   const [authError, setAuthError] = useState<string | null>(null);
+  const navigate = useNavigate();
+  const { setUser } = useAuth();
 
   const isLogin = mode === "login";
 
@@ -66,9 +70,14 @@ export const AuthPage = () => {
       if (isLogin) {
         const { email, password } = data as LoginForm;
         await login({ email, password });
+        const me = await getMe();
+        setUser(me);
+        navigate("/profile");
       } else {
         const { email, password, name, last_name } = data as RegisterForm;
         await registerUser({ email, password, name, last_name });
+        // После регистрации — что-то делаем? Пока оставляем на форме.
+        // Если бэк логинит сразу — можно тоже вызвать refresh() + getMe() + setUser() + navigate
       }
     } catch (error) {
       if (error instanceof ApiError) {
