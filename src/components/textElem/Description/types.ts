@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
-export type DescriptionFont = "inter" | "grotesk" | "mono";
+
+import type { TextFont } from "../types";
 
 export interface IDescriptionElem {
   children: ReactNode;
@@ -7,7 +8,7 @@ export interface IDescriptionElem {
   fontWeight?: number;
   fontSize?: string | number;
   lineHeight?: string | number;
-  font?: DescriptionFont;
+  font?: TextFont;
   letterSpacing?: string;
   className?: string;
 }

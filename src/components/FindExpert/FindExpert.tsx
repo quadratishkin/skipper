@@ -1,18 +1,18 @@
 import { FindExpertCard } from "./FindExpertCard";
-import DescriptionElem from "../textElem/Description/DescriptionElem";
-import TitleElem from "../textElem/Title/TitleElem";
+import { DescriptionElem } from "../textElem/Description/DescriptionElem";
+import { TitleElem } from "../textElem/Title/TitleElem";
 import "./FindExpert.scss";
 
 export const FindExpert = () => {
   return (
-    <section className="findExpert">
+    <section className="find-expert">
       <div className="container">
         <TitleElem
           level={1}
           align="center"
           font="grotesk"
           fontWeight={700}
-          className="findExpert__title"
+          className="find-expert__title"
         >
           Найдите эксперта под свою задачу
         </TitleElem>
@@ -20,12 +20,12 @@ export const FindExpert = () => {
         <DescriptionElem
           align="center"
           fontSize="18px"
-          className="findExpert__subtitle"
+          className="find-expert__subtitle"
         >
           Два способа — выберите, какой удобнее.
         </DescriptionElem>
 
-        <div className="findExpert__grid">
+        <div className="find-expert__grid">
           <FindExpertCard
             title="Опишите задачу"
             text="Эксперты сами предложат помощь. Вы выберете, с кем работать."

@@ -1,75 +1,32 @@
-# React + TypeScript + Vite
+# Skipper
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Сервис поиска экспертов и заявок на консультацию: каталог экспертов, создание и ведение заявок, переписка, личный кабинет.
 
-Currently, two official plugins are available:
+## Стек
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React 19 + TypeScript
+- Vite
+- React Router
+- react-hook-form + zod — формы и валидация
+- SCSS (БЭМ)
 
-## React Compiler
+## Скрипты
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `npm run dev` — dev-сервер Vite
+- `npm run build` — проверка типов (`tsc -b`) и прод-сборка в `dist/`
+- `npm run preview` — локальный предпросмотр прод-сборки
+- `npm run lint` — ESLint
 
-## Expanding the ESLint configuration
+## API
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **dev**: `API_URL = "/api"` (переменная окружения не задана) — запросы проксируются на `https://dev.tskipper.ru` через `server.proxy` в `vite.config.ts`; прокси действует только на dev-сервере.
+- **prod**: при `npm run build` подхватывается `.env.production` и абсолютный `VITE_API_URL` вшивается в сборку.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Структура
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+- `src/api/` — запросы к API, работа с токеном, валидация ответов
+- `src/components/` — переиспользуемые компоненты
+- `src/pages/` — страницы
+- `src/data/` — статические данные для страниц
+- `src/global/` — глобальные стили, SCSS-переменные и миксины
+- `src/images/` — статические ассеты

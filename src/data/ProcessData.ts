@@ -1,10 +1,6 @@
-export interface ProcessStepI {
-  number: string;
-  title: string;
-  text: string;
-}
+import type { IProcessStep } from "../components/Process/types";
 
-export const PROCESS_STEPS: ProcessStepI[] = [
+export const PROCESS_STEPS: IProcessStep[] = [
   {
     number: "01",
     title: "Найдите эксперта",

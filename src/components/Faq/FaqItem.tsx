@@ -1,7 +1,7 @@
-import type { FaqItemI } from "../../data/FaqData";
+import type { IFaqItem } from "./types";
 import "./FaqItem.scss";
 
-interface Props extends FaqItemI {
+interface Props extends IFaqItem {
   isOpen: boolean;
   onToggle: () => void;
 }

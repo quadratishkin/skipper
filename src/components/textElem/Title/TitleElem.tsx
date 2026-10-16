@@ -1,7 +1,7 @@
-import React from "react";
+import type { CSSProperties } from "react";
 
 import "./TitleElem.scss";
-import { FONT_FAMILY } from "./consts";
+import { FONT_FAMILY } from "../consts";
 import type { ITitleElem } from "./types";
 
 const TAGS: Record<
@@ -16,7 +16,7 @@ const TAGS: Record<
   6: "h6",
 };
 
-const TitleElem: React.FC<ITitleElem> = ({
+export const TitleElem = ({
   children,
   level = 1,
   align,
@@ -25,10 +25,10 @@ const TitleElem: React.FC<ITitleElem> = ({
   font = "grotesk",
   letterSpacing,
   className,
-}) => {
+}: ITitleElem) => {
   const Tag = TAGS[level];
 
-  const style: React.CSSProperties = {
+  const style: CSSProperties = {
     fontFamily: FONT_FAMILY[font],
   };
   if (align) style.textAlign = align;
@@ -36,7 +36,7 @@ const TitleElem: React.FC<ITitleElem> = ({
   if (fontSize) style.fontSize = fontSize;
   if (letterSpacing) style.letterSpacing = letterSpacing;
 
-  const classNames = ["titleElem", `titleElem--${level}`, className]
+  const classNames = ["title-elem", `title-elem--${level}`, className]
     .filter(Boolean)
     .join(" ");
 
@@ -46,5 +46,3 @@ const TitleElem: React.FC<ITitleElem> = ({
     </Tag>
   );
 };
-
-export default TitleElem;

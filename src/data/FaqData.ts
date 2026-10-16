@@ -1,9 +1,6 @@
-export interface FaqItemI {
-  question: string;
-  answer: string;
-}
+import type { IFaqItem } from "../components/Faq/types";
 
-export const FAQ_ITEMS: FaqItemI[] = [
+export const FAQ_ITEMS: IFaqItem[] = [
   {
     question: "Что выбрать: каталог или заявку?",
     answer:

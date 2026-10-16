@@ -1,4 +1,4 @@
-import type { IRequest } from "../Pages/RequestPage/types";
+import type { IRequest } from "../pages/RequestPage/types";
 
 export const REQUESTS_DATA: IRequest[] = [
   {

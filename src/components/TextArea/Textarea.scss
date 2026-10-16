@@ -1,4 +1,4 @@
-.textArea {
+.text-area {
   width: 100%;
   box-sizing: border-box;
   border: 1px solid #ccc;
@@ -9,6 +9,6 @@
   transition: border-color 0.2s;
 }
 
-.textArea:focus {
+.text-area:focus {
   border-color: #7d7d7d;
 }

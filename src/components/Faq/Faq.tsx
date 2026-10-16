@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { FaqItem } from "./FaqItem";
 import { FAQ_ITEMS } from "../../data/FaqData";
-import TitleElem from "../textElem/Title/TitleElem";
+import { TitleElem } from "../textElem/Title/TitleElem";
 import "./Faq.scss";
 
 export const Faq = () => {

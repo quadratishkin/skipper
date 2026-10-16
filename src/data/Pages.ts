@@ -2,17 +2,17 @@ export interface INavItem {
   page: Pages;
   to: string;
   label: string;
-};
+}
 
 export enum Pages {
-  MAIN = "MAIN",
-  CATALOG = "CATALOG",
-  MESSENGER = "MESSENGER",
-  DEVELOPERS = "DEVELOPERS",
-  AUTH = "AUTH",
-  REQUEST_LIST = 'REQUEST_LIST',
-  REQUEST = 'REQUEST',
-  PROFILE = "PROFILE"
+  MAIN,
+  CATALOG,
+  MESSENGER,
+  DEVELOPERS,
+  AUTH,
+  REQUEST_LIST,
+  REQUEST,
+  PROFILE,
 }
 
 export const NAV_ITEMS: INavItem[] = [

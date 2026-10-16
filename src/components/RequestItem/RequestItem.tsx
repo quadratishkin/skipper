@@ -2,12 +2,11 @@ import "./RequestItem.scss";
 
 interface RequestItemProps {
   industry: string;
-  onClick: () => void;
 }
 
-export const RequestItem = ({ industry, onClick }: RequestItemProps) => {
+export const RequestItem = ({ industry }: RequestItemProps) => {
   return (
-    <div className="request-item" onClick={onClick}>
+    <div className="request-item">
       <span className="request-item__industry">{industry}</span>
       <span className="request-item__arrow">→</span>
     </div>

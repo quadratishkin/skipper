@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-export type TitleFont = "inter" | "grotesk" | "mono";
+import type { TextFont } from "../types";
 
 export interface ITitleElem {
   children: ReactNode;
@@ -8,7 +8,7 @@ export interface ITitleElem {
   align?: "left" | "center" | "right";
   fontWeight?: number;
   fontSize?: string | number;
-  font?: TitleFont;
+  font?: TextFont;
   letterSpacing?: string;
   className?: string;
 }

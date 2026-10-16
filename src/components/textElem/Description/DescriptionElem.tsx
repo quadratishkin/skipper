@@ -1,10 +1,10 @@
-import React from "react";
+import type { CSSProperties } from "react";
 
 import "./DescriptionElem.scss";
-import { FONT_FAMILY } from "./consts";
+import { FONT_FAMILY } from "../consts";
 import type { IDescriptionElem } from "./types";
 
-const DescriptionElem: React.FC<IDescriptionElem> = ({
+export const DescriptionElem = ({
   children,
   align,
   fontWeight,
@@ -13,8 +13,8 @@ const DescriptionElem: React.FC<IDescriptionElem> = ({
   font = "inter",
   letterSpacing,
   className,
-}) => {
-  const style: React.CSSProperties = {
+}: IDescriptionElem) => {
+  const style: CSSProperties = {
     fontFamily: FONT_FAMILY[font],
   };
   if (align) style.textAlign = align;
@@ -23,7 +23,7 @@ const DescriptionElem: React.FC<IDescriptionElem> = ({
   if (lineHeight) style.lineHeight = lineHeight;
   if (letterSpacing) style.letterSpacing = letterSpacing;
 
-  const classNames = ["descriptionElem", className].filter(Boolean).join(" ");
+  const classNames = ["description-elem", className].filter(Boolean).join(" ");
 
   return (
     <p className={classNames} style={style}>
@@ -31,5 +31,3 @@ const DescriptionElem: React.FC<IDescriptionElem> = ({
     </p>
   );
 };
-
-export default DescriptionElem;

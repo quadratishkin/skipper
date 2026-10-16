@@ -1,10 +1,6 @@
-export interface BecomeExpertStepI {
-  number: string;
-  title: string;
-  text: string;
-}
+import type { IBecomeExpertStep } from "../components/BecomeExpert/types";
 
-export const BECOME_EXPERT_STEPS: BecomeExpertStepI[] = [
+export const BECOME_EXPERT_STEPS: IBecomeExpertStep[] = [
   {
     number: "01",
     title: "Расскажите о себе",

@@ -1,6 +1,6 @@
 // Импортируем миксины (укажите правильный путь к файлу с миксинами, если он отличается)
 @use "../../global/variables" as *;
-@use "../../global/mixins" as *; // Замените на реальный путь к файлу с миксинами
+@use "../../global/mixins" as *;
 
 .header {
   padding: 10px 0;
@@ -21,7 +21,7 @@
   }
 }
 
-.navMenu {
+.nav-menu {
   display: grid;
   // На десктопе делим на 2 колонки: логотип слева, меню справа
   grid-template-columns: auto 1fr;
