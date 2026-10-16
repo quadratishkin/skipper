@@ -4,7 +4,8 @@ export interface IFindExpertCard {
   formType: "textarea" | "search";
   placeholder: string;
   buttonText: string;
+  to: string;                    
+  paramName: string;             
   accent?: boolean;
   recommended?: boolean;
-  onSubmit?: (e: React.FormEvent<HTMLFormElement>) => void;
 }

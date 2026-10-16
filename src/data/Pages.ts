@@ -6,7 +6,7 @@ export interface INavItem {
 
 export enum Pages {
   MAIN = "MAIN",
-  USERS = "USERS",
+  CATALOG = "CATALOG",
   MESSENGER = "MESSENGER",
   DEVELOPERS = "DEVELOPERS",
   AUTH = "AUTH",
@@ -16,7 +16,7 @@ export enum Pages {
 }
 
 export const NAV_ITEMS: INavItem[] = [
-  { page: Pages.USERS, to: "/users", label: "Пользователи" },
+  { page: Pages.CATALOG, to: "/catalog", label: "Каталог" },
   { page: Pages.MESSENGER, to: "/messenger", label: "Чаты" },
   { page: Pages.DEVELOPERS, to: "/developers", label: "Разработчики" },
   { page: Pages.REQUEST_LIST, to: "/request-list", label: "Заявки" },

@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { RiSearchLine } from "react-icons/ri";
+import { useNavigate } from "react-router";
 
 import "./FindExpertCard.scss";
 import type { IFindExpertCard } from "./types";
@@ -9,13 +11,25 @@ export const FindExpertCard = ({
   formType,
   placeholder,
   buttonText,
+  to,
+  paramName,
   accent = false,
   recommended = false,
-  onSubmit,
 }: IFindExpertCard) => {
+  const [value, setValue] = useState("");
+  const navigate = useNavigate();
+
   const cardClassName = `find-expert-card${
     accent ? " find-expert-card--accent" : ""
   }`;
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const trimmed = value.trim();
+    navigate(
+      trimmed ? `${to}?${paramName}=${encodeURIComponent(trimmed)}` : to,
+    );
+  };
 
   return (
     <article className={cardClassName}>
@@ -26,15 +40,14 @@ export const FindExpertCard = ({
       <h2 className="find-expert-card__title">{title}</h2>
       <p className="find-expert-card__text">{text}</p>
 
-      <form
-        className="find-expert-card__form"
-        onSubmit={onSubmit ?? ((e) => e.preventDefault())}
-      >
+      <form className="find-expert-card__form" onSubmit={handleSubmit}>
         {formType === "textarea" ? (
           <textarea
             className="find-expert-card__textarea"
             placeholder={placeholder}
             rows={3}
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
           />
         ) : (
           <div className="find-expert-card__search">
@@ -44,6 +57,8 @@ export const FindExpertCard = ({
               className="find-expert-card__input"
               placeholder={placeholder}
               aria-label={placeholder}
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
             />
           </div>
         )}

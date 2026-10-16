@@ -1,0 +1,39 @@
+@use "../../global/variables" as *;
+@use "../../global/mixins" as *;
+
+.catalog {
+  padding: 40px 0;
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
+    align-items: start;
+
+    @include vp-1024 {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  &__filters {
+    position: sticky;
+    background-color: $white;
+    padding: 20px;
+    top: 90px;
+    align-self: start;
+    border: 1px solid $border-bottom-header;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+    @include vp-1024 {
+      position: static;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}

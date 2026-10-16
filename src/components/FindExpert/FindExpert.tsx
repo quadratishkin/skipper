@@ -32,6 +32,8 @@ export const FindExpert = () => {
             formType="textarea"
             placeholder="Например: нужна помощь с выбором направления и планом перехода"
             buttonText="Получить отклики"
+            to="/requests/new"
+            paramName="description"
           />
 
           <FindExpertCard
@@ -40,6 +42,8 @@ export const FindExpert = () => {
             formType="search"
             placeholder="Тема или направление"
             buttonText="Перейти в каталог"
+            to="/catalog"
+            paramName="query"
             accent
             recommended
           />
