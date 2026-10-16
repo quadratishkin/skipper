@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 
 import "./Header.scss";
-import { useAuth } from "../../context/AuthContext";
 import { NAV_ITEMS } from "../../data/Pages";
+import { useAuth } from "../../hooks/useAuth";
 import Logo from "../../images/Logo.svg?react";
 
 export const Header = () => {

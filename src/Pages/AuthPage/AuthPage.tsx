@@ -24,7 +24,7 @@ import {
 import DescriptionElem from "../../components/textElem/Description/DescriptionElem";
 import TitleElem from "../../components/textElem/Title/TitleElem";
 import "./AuthPage.scss";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../../hooks/useAuth";
 
 const AUTH_ERROR_MESSAGES: Record<string, string> = {
   invalid_refresh_token: "Такого пользователя не существует",
